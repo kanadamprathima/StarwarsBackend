@@ -9,36 +9,35 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-model People{
-  id Int @id @default(autoincrement())
-  name String
-  height String
-  hair_color String
-  homeworld  Planet   @relation(fields: [homeworldId], references: [id])
+
+model People {
+  id          Int @id @default(autoincrement())
+  name        String
+  height      String
+  homeworld   Planet @relation(fields: [homeworldId], references: [id])
   homeworldId Int
   species    Species? @relation(fields: [speciesId], references: [id])
-  speciesId  Int
-
+  speciesId  Int?
 }
+
 //People model has one-to-many with Planet.
 //planets can have multiple residents.
-model Planet{
-id Int @id @default(autoincrement())
-name String
-terrain String?
-gravity String?
-diameter Int?
-climate String?
-residents People[]
-
+model Planet {
+  id        Int   @id @default(autoincrement())
+  name      String
+  terrain   String?
+  gravity   String?
+  diameter  Int?
+  climate   String?
+  residents People[]
 }
+
 //Planet has many to one with species
 //species has many-many with people.
-model Species{
-id Int @id @default(autoincrement())
-name String
-classification String?
-language String?
-designation String?
-people People[]
+model Species {
+  id             Int   @id @default(autoincrement())
+  name           String
+  classification String?
+  language       String?
+  people         People[]
 }
