@@ -4,7 +4,9 @@ Express Typescript project
  
  # Getting Started
  - Clone the repository to your local machine.
-  git clone https://github.com/kanadamprathima/StarwarsBackend.git.
-- Install the required dependencies by running npm install.
-- Start the development server by running npm run dev.
+   git clone https://github.com/kanadamprathima/StarwarsBackend.git.
+- Install the required dependencies.
+   npm install.
+- Start the development server by running 
+  npm run dev.
 
